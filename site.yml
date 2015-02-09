@@ -1,0 +1,29 @@
+---
+# Requires extra vars:
+# - fullname
+# - email
+#
+# eg.: curl https://raw.githubusercontent.com/nuada/ansible-dotfiles/master/files/site.yml | ansible-playbook -e 'fullname="Full Name" email=address@example.com" /dev/stdin
+
+- hosts: localhost
+  connection: local
+
+  tasks:
+    - name: setup .dotfiles
+      get_url: url="https://raw.githubusercontent.com/nuada/ansible-dotfiles/master/files/{{ item }}" dest="{{ ansible_env.HOME }}/{{ item }}"
+      with_items:
+        - .bash_aliases
+        - .bash_logout
+        - .bash_profile
+        - .bashrc
+        - .hgrc
+        - .vimrc
+
+    - name: set full name in hgrc
+      lineinfile: dest="{{ asnible_env.HOME}}/.hgrc" regexp="^username = " line="username = {{ fullname }}"
+
+    - name: set full name in gitconfig
+      lineinfile: dest="{{ asnible_env.HOME}}/.gitconfig" regexp="^name = " line="name = {{ fullname }}"
+
+    - name: set email in gitconfig
+      lineinfile: dest="{{ asnible_env.HOME}}/.gitconfig" regexp="^email = " line="email = {{ email }}"
