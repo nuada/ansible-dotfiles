@@ -10,7 +10,7 @@
 
   tasks:
     - name: setup .dotfiles
-      get_url: url="https://raw.githubusercontent.com/nuada/ansible-dotfiles/master/files/{{ item }}" dest="{{ ansible_env.HOME }}/{{ item }}"
+      get_url: url="https://raw.githubusercontent.com/nuada/ansible-dotfiles/master/files/{{ item }}" dest="{{ ansible_env.HOME }}/{{ item }}" force=yes
       with_items:
         - .bash_aliases
         - .bash_logout
