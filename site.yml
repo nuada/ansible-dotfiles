@@ -21,10 +21,10 @@
         - .vimrc
 
     - name: set full name in hgrc
-      lineinfile: dest="{{ ansible_env.HOME}}/.hgrc" regexp="^username = " line="username = {{ fullname }}"
+      lineinfile: dest="{{ ansible_env.HOME }}/.hgrc" regexp="^username = " line="username = {{ fullname }}"
 
     - name: set full name in gitconfig
-      lineinfile: dest="{{ ansible_env.HOME}}/.gitconfig" regexp="^name = " line="name = {{ fullname }}"
+      lineinfile: dest="{{ ansible_env.HOME }}/.gitconfig" regexp="^name = " line="name = {{ fullname }}"
 
     - name: set email in gitconfig
-      lineinfile: dest="{{ ansible_env.HOME}}/.gitconfig" regexp="^email = " line="email = {{ email }}"
+      lineinfile: dest="{{ ansible_env.HOME }}/.gitconfig" regexp="^email = " line="email = {{ email }}"
