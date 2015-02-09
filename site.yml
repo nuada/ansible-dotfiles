@@ -16,6 +16,7 @@
         - .bash_logout
         - .bash_profile
         - .bashrc
+        - .gitconfig
         - .hgrc
         - .vimrc
 
