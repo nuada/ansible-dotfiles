@@ -1,0 +1,16 @@
+[ui]
+username =
+
+[defaults]
+pull=-u
+revert = --no-backup
+
+[extensions]
+extdiff=
+fetch=
+record=
+transplant=
+
+[extdiff]
+cmd.cd=colordiff
+opts.cd=-uprN
