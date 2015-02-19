@@ -2,8 +2,6 @@
 # Requires extra vars:
 # - fullname
 # - email
-#
-# eg.: curl https://raw.githubusercontent.com/nuada/ansible-dotfiles/master/site.yml | ansible-playbook -e 'fullname="Full Name" email=address@example.com" /dev/stdin
 
 - hosts: localhost
   connection: local
