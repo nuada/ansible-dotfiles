@@ -28,7 +28,7 @@
       lineinfile: dest="{{ ansible_env.HOME }}/.gitconfig" regexp="^email =" line="email = {{ email }}"
 
     - name: setup pathogen dirs
-      file: path="{{ ansible_env.HOME }}/.vim/{{ item }}"
+      file: path="{{ ansible_env.HOME }}/.vim/{{ item }}" state=directory
       with_items:
         - autoload
         - bundle
