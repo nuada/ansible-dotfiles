@@ -39,8 +39,8 @@
     - name: install plugins to pathogen bundle
       git: repo="git://github.com/{{ item }}.git" dest="{{ ansible_env.HOME }}/.vim/bundle/{{ item | basename }}" accept_hostkey=yes
       with_items:
-        - tpope/vim-sensible
         - avakhov/vim-yaml
+        - chase/vim-ansible-yaml
         - godlygeek/tabular
         - tpope/vim-markdown
-        - chase/vim-ansible-yaml
+        - tpope/vim-sensible
