@@ -26,3 +26,21 @@
 
     - name: set email in gitconfig
       lineinfile: dest="{{ ansible_env.HOME }}/.gitconfig" regexp="^email =" line="email = {{ email }}"
+
+    - name: setup pathogen dirs
+      file: path="{{ ansible_env.HOME }}/.vim/{{ item }}"
+      with_items:
+        - autoload
+        - bundle
+
+    - name: install pathogen
+      get_url: url="https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim" dest="{{ ansible_env.HOME }}/.vim/autoload/pathogen.vim"
+
+    - name: install plugins to pathogen bundle
+      git: repo="git://github.com/{{ item }}.git" dest="{{ ansible_env.HOME }}/.vim/bundle/{{ item | basename }}" accept_hostkey=yes
+      with_items:
+        - tpope/vim-sensible
+        - avakhov/vim-yaml
+        - godlygeek/tabular
+        - tpope/vim-markdown
+        - chase/vim-ansible-yaml
