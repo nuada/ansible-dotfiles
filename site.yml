@@ -41,6 +41,5 @@
       with_items:
         - avakhov/vim-yaml
         - chase/vim-ansible-yaml
-        - godlygeek/tabular
         - tpope/vim-markdown
         - tpope/vim-sensible
