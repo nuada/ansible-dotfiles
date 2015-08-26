@@ -21,6 +21,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    alias omicron="exec ssh-agent bash -c 'ssh-add ~/.ssh/omicron/id_rsa; exec bash'"
 
     # Color prompt, red for root
     if [[ ${EUID} == 0 ]] ; then
@@ -45,3 +46,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH="$PATH:$HOME/.local/bin"
