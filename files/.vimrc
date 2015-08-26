@@ -57,8 +57,8 @@ endfunction
 map <F9> :call Format()<CR>
 
 " Align columns
-map <F5> :%!column -t -n -s '	'<CR>
-map <S-F5> :%!column -t -n<CR>
+map <C-t> :%!column -t -n -s '	'<CR>
+map <C-T> :%!column -t -n<CR>
 
 execute pathogen#infect()
 syntax on
