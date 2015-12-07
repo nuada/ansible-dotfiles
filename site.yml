@@ -13,10 +13,12 @@
         - .bash_aliases
         - .bash_logout
         - .bash_profile
-        - .bashrc
         - .gitconfig
         - .hgrc
         - .vimrc
+
+    - name: setup bashrc
+      get_url: url="https://raw.githubusercontent.com/nuada/ansible-dotfiles/master/files/.bashrc.{{ ansible_distribution }}" dest="{{ ansible_env.HOME }}/.bashrc" force=yes
 
     - name: set full name in hgrc
       lineinfile: dest="{{ ansible_env.HOME }}/.hgrc" regexp="^username =" line="username = {{ fullname }}"
